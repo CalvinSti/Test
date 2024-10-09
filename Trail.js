@@ -14,7 +14,7 @@ const currentTime = Date.now();
 });
 
 function createImageTrail(x, y, container) {
-    const images = ['Google.jpg', 'android.jpg', 'nasa.png', 'Bit.png', 'ava.png', 'spot.png', 'mine.png', 'net.png', 'mine.png', 'ama.pmg', 'face.png', 'ins.png', 'mic.png', 'x.jpg'];
+    const images = ['Google.jpg', 'android.jpg', 'Nasa.png', 'Bit.png', 'Ava.png', 'Spot.png', 'Net.png', 'Mine.png', 'Ama.pmg', 'Fac.png', 'ins.png', 'Mic.png', 'x.jpg'];
     let newImage;
     do {
         newImage = images[Math.floor(Math.random() * images.length)];
