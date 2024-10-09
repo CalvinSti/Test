@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 1</title>
+    <script defer src="Transition.js"></script>
+    <script defer src="Trail.js"></script>
+    <script defer src="LearnJava.js"></script>
+    <script defer src="Type.js"></script>
+    <script defer src="Hover.js"></script>
+    <style>
+        p {font-size: 30px}
+        Strong {color: rgb(247, 176, 46)}
+        strong {font-size: 50px}
+        pre {font-size: 25px}
+        pre {padding: 12}
+        b {font-size: 50px}
+
+        a {
+            text-decoration: none;
+        }
+        @media (max-width: 1600px) { /*Why do I have to make mobile compatibility*/
+            .float-right {
+                display: none;
+            }   
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+            html {
+    scroll-behavior: smooth;
+}
+        
+
+        body {
+            background: rgb(54, 129, 240); /*this stupid thing caused me problems*/
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .grid-container > div {
+            text-align: center;
+            padding: 10px 100px;
+        }
+        .grid-item {
+            color: black;
+            background-image: rgb(54, 129, 240);
+        }
+        .grid-item:hover {
+    box-shadow: 12px 12px 12px rgba(189, 189, 189, 0.945) inset,
+    -10px -10px 10px grey inset;
+    transition: all .4s ease-in-out;
+ -webkit-transition: all .4s ease-in-out;
+    font-size: 30px;
+    backdrop-filter: blur(10px);
+    -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1); 
+  border-radius: 10px;
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
+ .grid-item a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+        .JavaIs {
+            min-height: 100vh;
+            background-image: linear-gradient(to top, white, rgb(54, 129, 240));
+            padding: 50px 0;
+            position: relative;
+            z-index: -5;
+            width: auto;
+        } 
+
+        .float-right {
+            position: absolute;
+            top: 180px;
+            right: 150px;
+            transform: rotateX(10deg) rotateY(30deg);
+            width: 100%;
+            max-width: 100vh;
+            height: auto;
+        }
+        .WriteOnce {
+            height: auto;
+            min-height: 800px;
+            background-image: linear-gradient(to bottom, rgba(31,31,31,255), rgba(31,31,31,255), rgba(31,31,31,255), rgba(31,31,31,255), rgba(16,16,16,255));
+            padding: 50px;
+            position: relative;
+            z-index: 50;
+        }
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+        .Plat {
+            height: 100vh;
+            background-image: url("Pleasebegood.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            position: absolute;
+            text-align: left;
+        }
+
+        @-webkit-keyframes snowflakes-fall {
+		0% {
+			top: -10%
+		}
+		100% {
+			top: 100%
+		}
+	}
+	
+	@-webkit-keyframes snowflakes-shake {
+		0%,
+		100% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0)
+		}
+		50% {
+			-webkit-transform: translateX(80px);
+			transform: translateX(80px)
+		}
+	}
+	
+	@keyframes snowflakes-fall {
+		0% {
+			top: -10%
+		}
+		100% {
+			top: 100%
+		}
+	}
+	
+	@keyframes snowflakes-shake {
+		0%,
+		100% {
+			transform: translateX(0)
+		}
+		50% {
+			transform: translateX(80px)
+		}
+	}
+    .trail-area {
+    width: 500px;
+    height: 300px;
+    background-color: #ddd;
+    border: 2px solid #000;
+    position: relative;
+}
+
+.trail-image {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    opacity: 1;
+    animation: flyOff 1s ease forwards;
+}
+
+@keyframes flyOff {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--moveX), var(--moveY)) scale(0.5);
+    }
+}
+	
+	.snowflake {
+        opacity: 0;
+		position: absolute;
+		top: -10%;
+		z-index: 9999;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		-webkit-animation-name: snowflakes-fall, snowflakes-shake;
+		-webkit-animation-duration: 10s, 3s;
+		-webkit-animation-timing-function: linear, ease-in-out;
+		-webkit-animation-iteration-count: infinite, infinite;
+		-webkit-animation-play-state: running, running;
+		animation-name: snowflakes-fall, snowflakes-shake;
+		animation-duration: 10s, 3s;
+		animation-timing-function: linear, ease-in-out;
+		animation-iteration-count: infinite, infinite;
+		animation-play-state: running, running
+	}
+	
+	.snowflake:nth-of-type(0) {
+		left: 1%;
+		-webkit-animation-delay: 0s, 0s;
+		animation-delay: 0s, 0s
+	}
+	
+	.snowflake:nth-of-type(1) {
+		left: 10%;
+		-webkit-animation-delay: 1s, 1s;
+		animation-delay: 1s, 1s
+	}
+	
+	.snowflake:nth-of-type(2) {
+		left: 20%;
+		-webkit-animation-delay: 6s, .5s;
+		animation-delay: 6s, .5s
+	}
+	
+	.snowflake:nth-of-type(3) {
+		left: 30%;
+		-webkit-animation-delay: 4s, 2s;
+		animation-delay: 4s, 2s
+	}
+	
+	.snowflake:nth-of-type(4) {
+		left: 40%;
+		-webkit-animation-delay: 2s, 2s;
+		animation-delay: 2s, 2s
+	}
+	
+	.snowflake:nth-of-type(5) {
+		left: 50%;
+		-webkit-animation-delay: 8s, 3s;
+		animation-delay: 8s, 3s
+	}
+	
+	.snowflake:nth-of-type(6) {
+		left: 60%;
+		-webkit-animation-delay: 6s, 2s;
+		animation-delay: 6s, 2s
+	}
+	
+	.snowflake:nth-of-type(7) {
+		left: 70%;
+		-webkit-animation-delay: 2.5s, 1s;
+		animation-delay: 2.5s, 1s
+	}
+	
+	.snowflake:nth-of-type(8) {
+		left: 80%;
+		-webkit-animation-delay: 1s, 0s;
+		animation-delay: 1s, 0s
+	}
+	
+	.snowflake:nth-of-type(9) {
+		left: 90%;
+		-webkit-animation-delay: 3s, 1.5s;
+		animation-delay: 3s, 1.5s
+	}
+	
+	.snowflake:nth-of-type(10) {
+		left: 25%;
+		-webkit-animation-delay: 2s, 0s;
+		animation-delay: 2s, 0s
+	}
+	
+	.snowflake:nth-of-type(11) {
+		left: 65%;
+		-webkit-animation-delay: 4s, 2.5s;
+		animation-delay: 4s, 2.5s
+	}
+    .LearnJava {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-image: linear-gradient(to left, rgb(243, 104, 104),rgb(78, 164, 245));
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 69;
+            display: none;
+        }
+
+        .Close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #typing-text {
+    display: inline;
+}
+.Current-tab p {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    
+}
+.Current-tab{
+    font-size: 30px;
+    border-radius: 10px;
+    display: block;
+    position: relative;
+    background-color: rgb(54, 129, 240);
+}
+.Current-tab::after, .Current-tab::before{
+    content: "";
+    position: absolute;
+    --angle: 0deg;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+    translate: -50%-50%;
+    z-index: -1;
+    padding: 10px;
+    background-image: conic-gradient(from var(--angle), rgb(203, 30, 219), rgb(0, 140, 255),rgb(49, 187, 21),rgb(203, 30, 219));
+    border-radius: 20px;
+    animation: 3s spin linear infinite;
+}
+.Current-tab::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+@property --angle{
+    syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+}
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to  {
+    --angle: 360deg;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="Current-tab" id="curtab"><p>About Java</p></div>
+        <div class="grid-item"><a href="functions.html"><p>Functions of Java</p></a></div>
+        <div class="grid-item"><a href="history.html"><p>History of Java</p></a></div>
+        <div class="grid-item"><a href="group1.html"><p>Group 1 Members</p></a></div>
+    </div>
+
+<section class="about-java-section">
+
+    <div class="JavaIs">
+        <p><br><br><br><br><br></p>
+        <p class="Is hidden" style="margin:50px"><sup><strong>Java </strong><b>-</b> </sup><br>
+            is a high level, modern programming language <br>
+            designed in the early 1990s <br>
+            by Sun Microsystems, <br>
+            and is now currently owned <br>
+            by Oracle.<br>
+        </p>
+        <img class="float-right" src="oracle-sun.jpg" alt="Oracle-Sun" width="800" height="550">
+    </div>
+    <div class="WriteOnce">
+        <p class="hidden" style="color:grey">
+            <br><br><br><br><br><br>
+            Java is platform-independent<br> which means that you only need to write the program once <br>
+            to be able to run it on a number of different platforms.<br>
+        </p>
+        <div class="Sirv" data-options="model.shadow.softness:100; model.shadow.intensity:89; model.hint.finger:false; model.autorotate.enable:true; model.autorotate.speed:50; model.zoom:false; slide.animation.type:slide">
+            <div data-src="https://23213123123123123123123123123.sirv.com/monobloc_-_plastic_garden_chair.glb"></div> 
+        </div> 
+        <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+    </div>
+    
+    <div class="Plat" style="position: relative;"> <p style=color:rgba(16,16,16,255)>/*Why is a chair here? idk bro*/</p>
+        <pre class="usedfor" id="typing-text" style=color:white>
+    </div>
+
+    <div class="LearnJava" id="Onmykneespraying">
+        <div class="Yes" id="no">
+        <button class="Close" id="Button">&times;</button>
+        <p>Want to learn Java? <a href="https://www.w3schools.com/java/default.asp" target="_blank">Click here! (totally not an ip grabber trust me bro)</a></p>
+        </div>
+    </div>
+</section>
+</body>
+</html>

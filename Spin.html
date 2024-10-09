@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Spinning Images Animation</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.circle-container {
+    position: relative;
+    width: 1000px; /* Keep container size large */
+    height:1000px; /* Keep container size large */
+    overflow: hidden; /* Keeps everything inside the circle */
+    animation: rotate 10s linear infinite; /* Container rotation */
+}
+
+.image {
+    position: absolute;
+    width: 50px; /* Decreased image size */
+    height: 50px; /* Decreased image size */
+
+    background-size: cover; /* Ensures images fill the div */
+    background-position: center; /* Centers the image */
+}
+
+/* Rotate the images around the center */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Position images in a larger circle */
+.image:nth-child(1) {
+    top: 250%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(0deg) translateY(-160px); /* Increased distance */
+}
+
+.image:nth-child(2) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(20deg) translateY(-160px); /* Increased distance */
+}
+
+.image:nth-child(3) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(40deg) translateY(-160px); /* Increased distance */
+}
+
+.image:nth-child(4) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(60deg) translateY(-160px); /* Increased distance */
+}
+.image:nth-child(5) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(80deg) translateY(-160px); /* Increased distance */
+}
+.image:nth-child(6) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(100deg) translateY(-160px); /* Increased distance */
+}
+.image:nth-child(7) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(120deg) translateY(-160px); /* Increased distance */
+}
+.image:nth-child(8) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(140deg) translateY(-160px); /* Increased distance */
+}
+.image:nth-child(9) {
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, 100%) rotate(160deg) translateY(-160px); /* Increased distance */
+}
+</style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="image" style="background-image: url('android-png-0.png');"></div>
+        <div class="image" style="background-image: url('google.jpg');"></div>
+        <div class="image" style="background-image: url('Microsoft_logo.svg.png');"></div>
+        <div class="image" style="background-image: url('kupal.png');"></div>
+           <div class="image" style="background-image: url('kupal.png');"></div>
+
+         <div class="image" style="background-image: url('kupal.png');"></div>
+          <div class="image" style="background-image: url('kupal.png');"></div>
+        <div class="image" style="background-image: url('kupal.png');"></div>
+      <div class="image" style="background-image: url('kupal.png');"></div>
+
+    </div>
+</body>
+</html>
